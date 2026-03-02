@@ -1,481 +1,481 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brandon Marcelas Dozier | Creative Producer</title>
-  <meta name="description" content="Creative Producer & Performance Architect specializing in live performance, sports entertainment, and cinematic storytelling." />
+  <meta name="description" content="Media-forward creative producer blending performance, film, and technical direction to deliver immersive experiences." />
   <style>
-    
     :root{
-      --bg:#0a0a0a;
-      --panel:#0f0f0f;
-      --text:#ffffff;
-      --muted:rgba(255,255,255,.72);
-      --soft:rgba(255,255,255,.10);
-      --soft2:rgba(255,255,255,.06);
+      --bg:#070707;
+      --panel: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.88);
+      --muted: rgba(255,255,255,.62);
       --gold:#c9a227;
-      --max:1120px;
-      --radius:18px;
+      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --r: 18px;
+      --max: 1120px;
     }
-
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-      background: radial-gradient(1200px 700px at 15% 10%, rgba(201,162,39,.14), transparent 55%),
-                  radial-gradient(900px 600px at 85% 20%, rgba(255,255,255,.06), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-    }
-
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
-    .gold{color:var(--gold)}
-    .muted{color:var(--muted)}
-    .chip{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:10px 14px; border:1px solid var(--soft);
-      border-radius:999px; background:rgba(0,0,0,.25);
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .topbar{
+      position:fixed; inset:0 0 auto 0; z-index:50;
+      background: linear-gradient(180deg, rgba(7,7,7,.92), rgba(7,7,7,.40), transparent);
       backdrop-filter: blur(10px);
-      font-size:14px; letter-spacing:.2px;
     }
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--gold); display:inline-block}
-
-    /* Nav */
-    .nav{
-      position:sticky; top:0; z-index:50;
-      background:rgba(10,10,10,.65);
-      backdrop-filter: blur(14px);
-      border-bottom:1px solid var(--soft2);
-    }
-    .nav-inner{
+    .topbar .row{
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:18px;
-    }
-    .brand{
-      display:flex; flex-direction:column; line-height:1.1;
-      text-decoration:none;
-    }
-    .brand strong{font-weight:600; letter-spacing:.2px}
-    .brand span{font-size:13px; color:var(--muted)}
-    .nav-links{
-      display:flex; gap:18px; align-items:center; flex-wrap:wrap;
-      font-size:14px; color:var(--muted);
-    }
-    .nav-links a{ text-decoration:none; padding:8px 10px; border-radius:10px }
-    .nav-links a:hover{ background:rgba(255,255,255,.06); color:var(--text) }
-
-    .cta{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border:1px solid rgba(201,162,39,.55);
-      color:var(--text);
-      background:linear-gradient(180deg, rgba(201,162,39,.22), rgba(201,162,39,.06));
-      border-radius:12px;
-      text-decoration:none;
-      font-size:14px;
-      transition:.25s ease;
-      white-space:nowrap;
-    }
-    .cta:hover{ transform:translateY(-1px); border-color:rgba(201,162,39,.85) }
-
-    /* Hero */
-    .hero{
-      padding:72px 0 44px;
-      min-height:calc(100vh - 62px);
-      display:flex;
-      align-items:center;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:28px;
-      align-items:stretch;
-    }
-    .hero-card{
-      border:1px solid var(--soft2);
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      padding:34px;
-      position:relative;
-      overflow:hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
-    }
-    .hero-card:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:radial-gradient(600px 260px at 30% 10%, rgba(201,162,39,.20), transparent 60%);
-      pointer-events:none;
-    }
-    h1{
-      margin:14px 0 10px;
-      font-size: clamp(34px, 4.2vw, 56px);
-      font-weight:500;
-      letter-spacing:.2px;
-      line-height:1.05;
-    }
-    .subtitle{
-      font-size: clamp(16px, 1.4vw, 18px);
-      color:var(--muted);
-      max-width:56ch;
-      line-height:1.7;
-      margin:0 0 18px;
-    }
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 16px;
-      border-radius:12px;
-      text-decoration:none;
-      font-size:14px;
-      transition:.25s ease;
-      border:1px solid var(--soft2);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-    }
-    .btn:hover{ transform:translateY(-1px); background:rgba(255,255,255,.06) }
-    .btn-primary{
-      border:1px solid rgba(201,162,39,.60);
-      background:linear-gradient(180deg, rgba(201,162,39,.26), rgba(201,162,39,.07));
-    }
-
-    .side{
-      border:1px solid var(--soft2);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.03);
-      padding:26px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
-    }
-    .side h3{margin:0 0 12px; font-weight:500}
-    .side ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.8}
-    .side li{margin:6px 0}
-    
-    /* Hero background video */
-.hero{
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg{
-  position:absolute;
-  inset:0;
-  z-index:0;
-}
-
-.hero-bg video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter: contrast(1.05) saturate(1.05);
-  transform: scale(1.02);
-}
-
-.hero-bg::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(900px 500px at 20% 20%, rgba(201,162,39,.18), transparent 60%),
-    linear-gradient(180deg, rgba(10,10,10,.25) 0%, rgba(10,10,10,.80) 70%, rgba(10,10,10,1) 100%);
-}
-
-.hero .wrap,
-.hero-card,
-.side{
-  position: relative;
-  z-index: 1;
-}
-
-    /* Sections */
-    section{padding:64px 0}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:18px; margin-bottom:18px;
-    }
-    h2{margin:0; font-weight:500; letter-spacing:.2px; font-size:26px}
-    .kicker{color:var(--muted); font-size:14px; max-width:62ch}
-
-    /* Credibility strip */
-    .strip{
-      border-top:1px solid var(--soft2);
-      border-bottom:1px solid var(--soft2);
-      background:rgba(0,0,0,.18);
-    }
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:14px;
       padding:18px 0;
     }
-    .stat{
-      border:1px solid var(--soft2);
-      border-radius:14px;
-      padding:16px;
-      background:rgba(255,255,255,.03);
+    .brand{display:flex;flex-direction:column;gap:2px;letter-spacing:.4px}
+    .brand b{font-weight:560}
+    .brand span{font-size:.86rem;color:var(--muted)}
+    .nav{display:flex;gap:22px;align-items:center}
+    .nav a{font-size:.92rem;color:var(--muted)}
+    .nav a:hover{color:var(--text)}
+    .cta{
+      padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(201,162,39,.35);
+      background:rgba(201,162,39,.08);
+      color:var(--text);
     }
-    .stat strong{display:block; font-size:18px; font-weight:600}
-    .stat span{display:block; margin-top:6px; color:var(--muted); font-size:13px; line-height:1.35}
-
-    /* Cards */
-    .grid{
+    .cta:hover{background:rgba(201,162,39,.14)}
+    .hero{
+      min-height:100svh;
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1.05fr .95fr;
+      gap:22px;
+      align-items:end;
+      padding:110px 0 40px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-40px;
+      background:
+        radial-gradient(900px 500px at 20% 20%, rgba(201,162,39,.20), transparent 55%),
+        radial-gradient(800px 700px at 80% 10%, rgba(255,255,255,.10), transparent 55%),
+        radial-gradient(900px 600px at 60% 80%, rgba(201,162,39,.10), transparent 60%);
+      pointer-events:none;
+      filter: blur(0px);
+    }
+    .hero-left{position:relative; z-index:1}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:.88rem;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow: 0 0 20px rgba(201,162,39,.35)}
+    h1{
+      margin:14px 0 8px;
+      font-size: clamp(2.3rem, 4.4vw, 4.1rem);
+      line-height:1.02;
+      letter-spacing:-.6px;
+    }
+    .lead{
+      max-width: 54ch;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.7;
+      margin: 10px 0 22px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:12px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+    }
+    .btn.gold{
+      border-color: rgba(201,162,39,.45);
+      background: rgba(201,162,39,.10);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .hero-right{position:relative; z-index:1}
+    .portrait{
+      border-radius: 26px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.03);
+      position:relative;
+      isolation:isolate;
+      min-height: 520px;
+    }
+    .portrait img{
+      width:100%; height:100%;
+      object-fit:cover; display:block;
+      transform: scale(1.02);
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .portrait:after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(7,7,7,.10), rgba(7,7,7,.55) 65%, rgba(7,7,7,.92));
+      pointer-events:none;
+    }
+    .stamp{
+      position:absolute; left:16px; bottom:16px; right:16px;
+      display:flex; gap:12px; flex-wrap:wrap;
+      z-index:2;
+    }
+    .tag{
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.78);
+      font-size:.86rem;
+      backdrop-filter: blur(10px);
+    }
+    .tag strong{color:rgba(255,255,255,.92);font-weight:600}
+    section{padding:72px 0}
+    .section-title{
+      display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px
+    }
+    .section-title h2{margin:0;font-size:1.6rem;letter-spacing:.2px}
+    .section-title p{margin:0;color:var(--muted);max-width:64ch;line-height:1.6}
+    /* MEDIA GRID (poster-style) */
+    .media-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .stack{
+      display:grid;
+      grid-template-rows: 1fr 1fr;
       gap:16px;
     }
     .card{
-      border:1px solid var(--soft2);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.03);
-      padding:22px;
-      min-height: 190px;
-      transition:.25s ease;
+      border-radius: var(--r);
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      position:relative;
+      box-shadow: 0 16px 60px rgba(0,0,0,.35);
     }
-    .card:hover{ transform:translateY(-2px); background:rgba(255,255,255,.05) }
-    .card h3{margin:0 0 10px; font-weight:500}
-    .card p{margin:0; color:var(--muted); line-height:1.7}
-
-    /* Contact */
-    .contact{
-      border:1px solid var(--soft2);
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      padding:28px;
+    .card img{
+      width:100%;height:100%;
+      object-fit:cover; display:block;
+      filter: contrast(1.03) saturate(1.05);
+      transform: scale(1.01);
+    }
+    .card .cap{
+      position:absolute; left:14px; right:14px; bottom:14px;
+      display:flex;justify-content:space-between;align-items:end;gap:12px;
+      padding:12px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.40);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+    .cap b{font-weight:650}
+    .cap span{display:block;color:rgba(255,255,255,.70);font-size:.88rem;margin-top:4px}
+    .cap .chip{
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(201,162,39,.35);
+      background: rgba(201,162,39,.10);
+      color: rgba(255,255,255,.88);
+      white-space:nowrap;
+      font-size:.86rem;
+    }
+    .clickable{cursor:pointer}
+    .clickable:hover{transform: translateY(-1px)}
+    /* CASE STUDIES */
+    .cases{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      align-items:start;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:16px;
+      margin-top:18px;
     }
-    .contact a{color:var(--gold); text-decoration:none}
-    .contact a:hover{text-decoration:underline}
-    .mini{
-      border:1px solid var(--soft2);
-      border-radius:14px;
-      padding:16px;
-      background:rgba(0,0,0,.18);
+    .case{
+      border-radius: var(--r);
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      padding:18px;
     }
-    .mini h4{margin:0 0 8px; font-weight:600; font-size:14px}
-    .mini p{margin:0; color:var(--muted); font-size:13px; line-height:1.6}
-
+    .case b{display:block;margin-bottom:8px}
+    .case p{margin:0;color:var(--muted);line-height:1.65}
+    /* SERVICES */
+    .services{
+      display:grid;grid-template-columns: repeat(3, 1fr);gap:16px;margin-top:18px
+    }
+    .service{
+      border-radius: var(--r);
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      padding:18px;
+    }
+    .service h3{margin:0 0 10px;font-size:1.05rem}
+    .service p{margin:0;color:var(--muted);line-height:1.65}
+    .price{margin-top:12px;color:rgba(255,255,255,.85)}
+    .price strong{color:var(--gold)}
+    /* FOOTER */
     .footer{
-      padding:30px 0 44px;
-      border-top:1px solid var(--soft2);
-      color:rgba(255,255,255,.55);
-      font-size:13px;
-      text-align:center;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding:26px 0 40px;
+      color:var(--muted);
+      font-size:.92rem;
     }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr}
-      .stats{grid-template-columns: repeat(2, 1fr)}
-      .grid{grid-template-columns: 1fr}
-      .contact{grid-template-columns: 1fr}
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed; inset:0; z-index:200;
+      background: rgba(0,0,0,.75);
+      display:none; align-items:center; justify-content:center;
+      padding:22px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox .frame{
+      width:min(980px, 96vw);
+      border-radius: 20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadow);
+      background: rgba(0,0,0,.35);
+      position:relative;
+    }
+    .lightbox img{
+      width:100%; height:auto; display:block;
+    }
+    .close{
+      position:absolute; top:12px; right:12px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.35);
+      color:rgba(255,255,255,.9);
+      border-radius: 12px;
+      padding:10px 12px;
+      cursor:pointer;
+    }
+    .close:hover{background: rgba(0,0,0,.5)}
+    /* RESPONSIVE */
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr; padding-bottom:24px}
+      .portrait{min-height: 420px}
+      .media-grid{grid-template-columns:1fr}
+      .cases{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .nav{display:none}
     }
   </style>
 </head>
-
 <body>
-  <!-- NAV -->
-  <header class="nav">
+
+  <header class="topbar">
     <div class="wrap">
-      <div class="nav-inner">
-        <a class="brand" href="#top">
-          <strong>Brandon Marcelas Dozier</strong>
+      <div class="row">
+        <div class="brand">
+          <b>Brandon Marcelas Dozier</b>
           <span>Creative Producer • Performance Architect</span>
-        </a>
-
-        <nav class="nav-links">
+        </div>
+        <nav class="nav">
           <a href="#about">About</a>
-          <a href="#services">Services</a>
+          <a href="#media">Media</a>
           <a href="#work">Selected Work</a>
-          <a href="#contact">Inquiries</a>
+          <a href="#services">Services</a>
+          <a href="#inquiries" class="cta">Work With Me</a>
         </nav>
-
-        <a class="cta" href="#contact">Work With Me</a>
+        <a class="cta" href="#inquiries">Work With Me</a>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main id="top" class="hero">
-    <div class="hero-bg" aria-hidden="true">
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    poster="assets/reel-poster.jpg"
-  >
-    <source src="assets/reel.mp4" type="video/mp4" />
-  </video>
-</div>
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="hero-card">
-          <div class="chip"><span class="dot"></span><span>Available for select 2026 projects</span></div>
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="hero-left">
+        <div class="pill"><span class="dot"></span>Available for select 2026 projects</div>
+        <h1>Media-first production that feels cinematic, controlled, and alive.</h1>
+        <p class="lead">
+          I build immersive experiences across stage, screen, and live audiences—merging performance direction,
+          technical systems, and storytelling so the final product lands with impact.
+        </p>
+        <div class="hero-actions">
+          <a class="btn gold" href="#inquiries">Start an Inquiry</a>
+          <a class="btn" href="mailto:brandon@cinemablack.org?subject=Producer%20Inquiry">Email Me</a>
+          <a class="btn" href="#media">View Media</a>
+        </div>
+      </div>
 
-          <h1>Producing immersive experiences across <span class="gold">stage, screen, and live audiences</span>.</h1>
+      <div class="hero-right">
+        <div class="portrait clickable" data-img="assets/img/hero.jpg" title="Open image">
+          <img src="assets/img/hero.jpg" alt="Brandon Marcelas Dozier portrait" />
+          <div class="stamp">
+            <div class="tag"><strong>Live</strong> Performance Systems</div>
+            <div class="tag"><strong>Film</strong> Direction + DOP</div>
+            <div class="tag"><strong>Tech</strong> Cues + Show Flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <p class="subtitle">
-            I lead high-level productions that merge performance, storytelling, and technical precision—bringing structure to creativity and cinematic impact to live moments.
-          </p>
+    <section id="about">
+      <div class="section-title">
+        <h2>Producer Snapshot</h2>
+        <p>Clear vision, clean execution, repeatable systems. I bring structure to creativity—so the work scales.</p>
+      </div>
+      <div class="cases">
+        <div class="case"><b>Live Entertainment + Storytelling</b><p>Audience-driven pacing, transitions, and stage picture that reads premium on-site and on-camera.</p></div>
+        <div class="case"><b>Performance Systems</b><p>Choreography leadership, rehearsal structure, run-of-show architecture, and talent direction.</p></div>
+        <div class="case"><b>Technical Precision</b><p>Lighting cues, operational leadership, and production strategy that makes creative repeatable.</p></div>
+      </div>
+    </section>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#services">Explore Services</a>
-            <a class="btn" href="mailto:brandon@cinemablack.org?subject=Producer%20Inquiry">Email Me</a>
+    <section id="media">
+      <div class="section-title">
+        <h2>Media</h2>
+        <p>Think “key art” + “stills” + “reel moments.” Click any image to view it full size. We’ll add videos next.</p>
+      </div>
+
+      <div class="media-grid">
+        <div class="card clickable" data-img="assets/img/awards.jpg" title="Open image">
+          <img src="assets/img/awards.jpg" alt="Awards and festival recognition" />
+          <div class="cap">
+            <div>
+              <b>Awards + Recognition</b>
+              <span>Festival selections / credibility marks</span>
+            </div>
+            <div class="chip">Credibility</div>
           </div>
         </div>
 
-        <aside class="side" aria-label="Producer snapshot">
-          <h3>Producer Snapshot</h3>
-          <ul>
-            <li>Live entertainment + cinematic storytelling leadership</li>
-            <li>Performance systems: choreography, staging, pacing</li>
-            <li>Technical direction: lighting, cues, show flow</li>
-            <li>Production strategy: teams, timelines, execution</li>
-          </ul>
-        </aside>
+        <div class="stack">
+          <div class="card clickable" data-img="assets/img/gameday.jpg" title="Open image">
+            <img src="assets/img/gameday.jpg" alt="Gameday poster" />
+            <div class="cap">
+              <div>
+                <b>Sports Entertainment</b>
+                <span>Game-day performance leadership</span>
+              </div>
+              <div class="chip">Live</div>
+            </div>
+          </div>
+
+          <div class="card clickable" data-img="assets/img/stairs.jpg" title="Open image">
+            <img src="assets/img/stairs.jpg" alt="Editorial portrait on stairs" />
+            <div class="cap">
+              <div>
+                <b>Editorial / Lifestyle</b>
+                <span>Human + cinematic identity</span>
+              </div>
+              <div class="chip">Brand</div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section id="work">
+      <div class="section-title">
+        <h2>Selected Work</h2>
+        <p>This is where your videos go—curated like case studies. Three strong projects beats ten random clips.</p>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <b>Live Entertainment Production</b>
+          <p>Run-of-show systems, staging, pacing, transitions—designed for crowd energy and camera readability.</p>
+        </div>
+        <div class="case">
+          <b>Cinematic Performance Storytelling</b>
+          <p>Movement-forward directing + production design that turns performance into lasting digital assets.</p>
+        </div>
+        <div class="case">
+          <b>Technical Direction + Design</b>
+          <p>Lighting cues, show flow, and operational leadership that makes creative repeatable and scalable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-title">
+        <h2>Flagship Services</h2>
+        <p>Premium offers for organizations and artists who want results—not just tasks.</p>
+      </div>
+      <div class="services">
+        <div class="service">
+          <h3>Executive Creative Direction</h3>
+          <p>Vision casting, department alignment, run-of-show architecture, and production oversight for elevated live experiences.</p>
+          <div class="price"><strong>Investment begins at $3,500</strong></div>
+        </div>
+        <div class="service">
+          <h3>Performance-to-Film Production</h3>
+          <p>Concept development, performance oversight, cinematic capture, and post-production strategy that turns moments into assets.</p>
+          <div class="price"><strong>Investment begins at $5,000</strong></div>
+        </div>
+        <div class="service">
+          <h3>Institutional Production Consulting</h3>
+          <p>Production audits, workflow redesign, technical alignment, and leadership training for performance organizations.</p>
+          <div class="price"><strong>Investment begins at $2,500</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inquiries">
+      <div class="section-title">
+        <h2>Inquiries</h2>
+        <p>Include: date(s), location, goal/outcome, audience size, and timeline. I’ll respond with next steps and availability.</p>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <b>Start here</b>
+          <p>
+            Email: <a href="mailto:brandon@cinemablack.org?subject=Producer%20Inquiry"><u>brandon@cinemablack.org</u></a>
+            <br/><br/>
+            Subject suggestion: <span style="color:var(--gold)">Producer Inquiry — [Project Name]</span>
+          </p>
+        </div>
+        <div class="case">
+          <b>What I’m best for</b>
+          <p>High-impact productions that need creative leadership + technical structure—so the experience lands and scales.</p>
+        </div>
+        <div class="case">
+          <b>DMV-based</b>
+          <p>Washington, DC • Maryland • Virginia. Travel considered for the right scope.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 Brandon Marcelas Dozier. All rights reserved.
     </div>
   </main>
 
-  <!-- CREDIBILITY STRIP -->
-  <div class="strip">
-    <div class="wrap">
-      <div class="stats">
-        <div class="stat">
-          <strong>10+ Years</strong>
-          <span>Experience across performance, film, and technical production</span>
-        </div>
-        <div class="stat">
-          <strong>Sports Entertainment</strong>
-          <span>Game-day performance leadership and audience engagement</span>
-        </div>
-        <div class="stat">
-          <strong>Award Recognition</strong>
-          <span>Festival selections + production awards across film projects</span>
-        </div>
-        <div class="stat">
-          <strong>DMV-Based</strong>
-          <span>Washington, DC • Maryland • Virginia production ecosystem</span>
-        </div>
-      </div>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="frame">
+      <button class="close" id="closeLightbox">Close</button>
+      <img id="lightboxImg" alt="Expanded media" />
     </div>
   </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>About</h2>
-        <div class="kicker">Producer-first positioning: clarity, structure, and a premium audience experience.</div>
-      </div>
-      <p class="muted" style="max-width:78ch; line-height:1.85; margin:0;">
-        Brandon Marcelas Dozier is a multidisciplinary Creative Producer known for designing immersive live and cinematic experiences.
-        With a foundation in performance, technical direction, and visual storytelling, he leads cross-functional teams from concept to execution—aligning creative vision with operational excellence.
-      </p>
-    </div>
-  </section>
+  <script>
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('closeLightbox');
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Flagship Services</h2>
-        <div class="kicker">Premium offers built for organizations and artists who want results—not just tasks.</div>
-      </div>
+    function openLightbox(src){
+      lbImg.src = src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+    }
+    function closeLightbox(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden','true');
+      lbImg.src = '';
+    }
 
-      <div class="grid">
-        <div class="card">
-          <h3 class="gold">Executive Creative Direction</h3>
-          <p>Vision casting, department alignment, run-of-show architecture, and production oversight for elevated live experiences.</p>
-          <p class="muted" style="margin-top:12px;"><strong>Investment begins at $3,500</strong></p>
-        </div>
-
-        <div class="card">
-          <h3 class="gold">Performance-to-Film Production</h3>
-          <p>Concept development, performance oversight, cinematic capture, and post-production strategy that turns moments into assets.</p>
-          <p class="muted" style="margin-top:12px;"><strong>Investment begins at $5,000</strong></p>
-        </div>
-
-        <div class="card">
-          <h3 class="gold">Institutional Production Consulting</h3>
-          <p>Production audits, workflow redesign, technical systems alignment, and leadership training for performance organizations.</p>
-          <p class="muted" style="margin-top:12px;"><strong>Investment begins at $2,500</strong></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORK -->
-  <section id="work">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Selected Work</h2>
-        <div class="kicker">Curated highlights (case-study style). We can swap these with your exact titles next.</div>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Live Entertainment Production</h3>
-          <p>Audience-driven performance systems with strong pacing, clean transitions, and premium stage picture.</p>
-        </div>
-        <div class="card">
-          <h3>Cinematic Performance Storytelling</h3>
-          <p>Movement-forward directing and production design for music videos and narrative visual projects.</p>
-        </div>
-        <div class="card">
-          <h3>Technical Direction + Design</h3>
-          <p>Lighting, cues, and operational leadership that makes creative ideas repeatable and scalable.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Inquiries</h2>
-        <div class="kicker">Serious inquiries only. Projects must align with strategic, high-level production goals.</div>
-      </div>
-
-      <div class="contact">
-        <div>
-          <p class="muted" style="margin-top:0; line-height:1.85; max-width:70ch;">
-            For bookings, consulting, or creative production leadership, email:
-            <br />
-            <a href="mailto:brandon@cinemablack.org?subject=Producer%20Inquiry">brandon@cinemablack.org</a>
-          </p>
-
-          <div class="hero-actions" style="margin-top:18px;">
-            <a class="btn btn-primary" href="mailto:brandon@cinemablack.org?subject=Producer%20Inquiry">Start an Inquiry</a>
-            <a class="btn" href="#services">View Services</a>
-          </div>
-        </div>
-
-        <div class="mini">
-          <h4>Inquiry checklist</h4>
-          <p>
-            Include: project date(s), location, goal/outcome, audience size, and your ideal timeline.
-            I’ll respond with next steps and availability.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    © 2026 Brandon Marcelas Dozier. All Rights Reserved.
-  </footer>
+    document.querySelectorAll('[data-img]').forEach(el=>{
+      el.addEventListener('click', ()=> openLightbox(el.getAttribute('data-img')));
+    });
+    closeBtn.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>
