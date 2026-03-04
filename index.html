@@ -8,7 +8,6 @@
   <style>
     :root{
       --bg:#070707;
-      --panel: rgba(255,255,255,.06);
       --stroke: rgba(255,255,255,.10);
       --text: rgba(255,255,255,.88);
       --muted: rgba(255,255,255,.62);
@@ -18,7 +17,7 @@
       --max: 1120px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
     .topbar{
@@ -26,10 +25,7 @@
       background: linear-gradient(180deg, rgba(7,7,7,.92), rgba(7,7,7,.40), transparent);
       backdrop-filter: blur(10px);
     }
-    .topbar .row{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:18px 0;
-    }
+    .row{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
     .brand{display:flex;flex-direction:column;gap:2px;letter-spacing:.4px}
     .brand b{font-weight:560}
     .brand span{font-size:.86rem;color:var(--muted)}
@@ -42,7 +38,6 @@
       background:rgba(201,162,39,.08);
       color:var(--text);
     }
-    .cta:hover{background:rgba(201,162,39,.14)}
     .hero{
       min-height:100svh;
       display:grid;
@@ -54,14 +49,12 @@
       overflow:hidden;
     }
     .hero:before{
-      content:"";
-      position:absolute; inset:-40px;
+      content:""; position:absolute; inset:-40px;
       background:
         radial-gradient(900px 500px at 20% 20%, rgba(201,162,39,.20), transparent 55%),
         radial-gradient(800px 700px at 80% 10%, rgba(255,255,255,.10), transparent 55%),
         radial-gradient(900px 600px at 60% 80%, rgba(201,162,39,.10), transparent 60%);
       pointer-events:none;
-      filter: blur(0px);
     }
     .hero-left{position:relative; z-index:1}
     .pill{
@@ -72,196 +65,116 @@
       color:var(--muted);
       font-size:.88rem;
     }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow: 0 0 20px rgba(201,162,39,.35)}
-    h1{
-      margin:14px 0 8px;
-      font-size: clamp(2.3rem, 4.4vw, 4.1rem);
-      line-height:1.02;
-      letter-spacing:-.6px;
-    }
-    .lead{
-      max-width: 54ch;
-      color:var(--muted);
-      font-size:1.05rem;
-      line-height:1.7;
-      margin: 10px 0 22px;
-    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 20px rgba(201,162,39,.35)}
+    h1{margin:14px 0 8px;font-size:clamp(2.3rem,4.4vw,4.1rem);line-height:1.02;letter-spacing:-.6px}
+    .lead{max-width:54ch;color:var(--muted);font-size:1.05rem;line-height:1.7;margin:10px 0 22px}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 16px;border-radius:12px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.04);
-      color:var(--text);
+      padding:12px 16px;border-radius:12px;border:1px solid var(--stroke);
+      background: rgba(255,255,255,.04); color:var(--text);
+      text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
     }
-    .btn.gold{
-      border-color: rgba(201,162,39,.45);
-      background: rgba(201,162,39,.10);
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .hero-right{position:relative; z-index:1}
+    .btn.gold{border-color:rgba(201,162,39,.45);background:rgba(201,162,39,.10)}
     .portrait{
-      border-radius: 26px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
-      background: rgba(255,255,255,.03);
-      position:relative;
-      isolation:isolate;
-      min-height: 520px;
+      border-radius:26px; overflow:hidden; border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow); background:rgba(255,255,255,.03);
+      position:relative; isolation:isolate; min-height:520px;
     }
-    .portrait img{
-      width:100%; height:100%;
-      object-fit:cover; display:block;
-      transform: scale(1.02);
-      filter: contrast(1.05) saturate(1.05);
-    }
-    .portrait:after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(7,7,7,.10), rgba(7,7,7,.55) 65%, rgba(7,7,7,.92));
-      pointer-events:none;
-    }
-    .stamp{
-      position:absolute; left:16px; bottom:16px; right:16px;
-      display:flex; gap:12px; flex-wrap:wrap;
-      z-index:2;
-    }
+    .portrait img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02)}
+    .portrait:after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,7,7,.10), rgba(7,7,7,.55) 65%, rgba(7,7,7,.92))}
+    .stamp{position:absolute;left:16px;bottom:16px;right:16px;display:flex;gap:12px;flex-wrap:wrap;z-index:2}
     .tag{
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.25);
-      color: rgba(255,255,255,.78);
-      font-size:.86rem;
-      backdrop-filter: blur(10px);
+      padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.25); color:rgba(255,255,255,.78); font-size:.86rem; backdrop-filter:blur(10px);
     }
-    .tag strong{color:rgba(255,255,255,.92);font-weight:600}
     section{padding:72px 0}
-    .section-title{
-      display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px
-    }
-    .section-title h2{margin:0;font-size:1.6rem;letter-spacing:.2px}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
+    .section-title h2{margin:0;font-size:1.6rem}
     .section-title p{margin:0;color:var(--muted);max-width:64ch;line-height:1.6}
-    /* MEDIA GRID (poster-style) */
+    .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .case{border-radius:var(--r);border:1px solid var(--stroke);background:rgba(255,255,255,.03);padding:18px}
+    .case b{display:block;margin-bottom:8px}
+    .case p{margin:0;color:var(--muted);line-length:1.65}
+
+    /* VIDEO MEDIA GRID */
     .media-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    .stack{
-      display:grid;
-      grid-template-rows: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap:16px;
     }
-    .card{
-      border-radius: var(--r);
+    .media-card{
+      border-radius:var(--r);
       border:1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
       overflow:hidden;
       position:relative;
-      box-shadow: 0 16px 60px rgba(0,0,0,.35);
+      box-shadow:0 16px 60px rgba(0,0,0,.35);
+      cursor:pointer;
+      aspect-ratio: 9 / 16;
     }
-    .card img{
-      width:100%;height:100%;
-      object-fit:cover; display:block;
-      filter: contrast(1.03) saturate(1.05);
-      transform: scale(1.01);
+    .media-card video{
+      width:100%; height:100%; object-fit:cover; display:block;
+      filter: contrast(1.05) saturate(1.05);
     }
-    .card .cap{
-      position:absolute; left:14px; right:14px; bottom:14px;
-      display:flex;justify-content:space-between;align-items:end;gap:12px;
-      padding:12px 12px;
-      border-radius: 14px;
-      background: rgba(0,0,0,.40);
-      border:1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
+    .media-card:hover{transform:translateY(-1px)}
+    .media-overlay{
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0) 55%);
+      opacity:0;
+      transition:opacity .2s ease;
+      pointer-events:none;
     }
-    .cap b{font-weight:650}
-    .cap span{display:block;color:rgba(255,255,255,.70);font-size:.88rem;margin-top:4px}
-    .cap .chip{
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(201,162,39,.35);
-      background: rgba(201,162,39,.10);
-      color: rgba(255,255,255,.88);
-      white-space:nowrap;
-      font-size:.86rem;
+    .media-card:hover .media-overlay{opacity:1}
+    .media-label{
+      position:absolute; left:14px; bottom:14px; right:14px;
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      pointer-events:none;
     }
-    .clickable{cursor:pointer}
-    .clickable:hover{transform: translateY(-1px)}
-    /* CASE STUDIES */
-    .cases{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:16px;
-      margin-top:18px;
+    .pill{
+      font-size:12px; letter-spacing:.8px; text-transform:uppercase;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(201,162,39,.55);
+      color:var(--gold);
+      background:rgba(0,0,0,.35);
+      backdrop-filter:blur(6px);
     }
-    .case{
-      border-radius: var(--r);
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
-      padding:18px;
+    .play-badge{
+      width:44px;height:44px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      display:grid; place-items:center;
+      background:rgba(0,0,0,.40);
+      color:rgba(255,255,255,.88);
+      font-weight:600;
     }
-    .case b{display:block;margin-bottom:8px}
-    .case p{margin:0;color:var(--muted);line-height:1.65}
-    /* SERVICES */
-    .services{
-      display:grid;grid-template-columns: repeat(3, 1fr);gap:16px;margin-top:18px
-    }
-    .service{
-      border-radius: var(--r);
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
-      padding:18px;
-    }
-    .service h3{margin:0 0 10px;font-size:1.05rem}
-    .service p{margin:0;color:var(--muted);line-height:1.65}
-    .price{margin-top:12px;color:rgba(255,255,255,.85)}
-    .price strong{color:var(--gold)}
-    /* FOOTER */
-    .footer{
-      border-top:1px solid rgba(255,255,255,.10);
-      padding:26px 0 40px;
-      color:var(--muted);
-      font-size:.92rem;
-    }
-    /* LIGHTBOX */
-    .lightbox{
-      position:fixed; inset:0; z-index:200;
-      background: rgba(0,0,0,.75);
+
+    /* Modal player */
+    .modal{
+      position:fixed; inset:0; background:rgba(0,0,0,.85);
       display:none; align-items:center; justify-content:center;
-      padding:22px;
+      padding:24px; z-index:9999;
     }
-    .lightbox.open{display:flex}
-    .lightbox .frame{
-      width:min(980px, 96vw);
-      border-radius: 20px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow: var(--shadow);
-      background: rgba(0,0,0,.35);
-      position:relative;
+    .modal.open{display:flex}
+    .modal-inner{
+      width:min(520px, 92vw);
+      border-radius:18px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:#0a0a0a; position:relative;
     }
-    .lightbox img{
-      width:100%; height:auto; display:block;
-    }
-    .close{
-      position:absolute; top:12px; right:12px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.35);
-      color:rgba(255,255,255,.9);
-      border-radius: 12px;
-      padding:10px 12px;
+    .modal video{width:100%; height:auto; display:block; background:#000}
+    .modal-close{
+      position:absolute; top:10px; right:10px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(0,0,0,.55);
+      color:#fff;
+      padding:8px 10px;
+      border-radius:999px;
       cursor:pointer;
     }
-    .close:hover{background: rgba(0,0,0,.5)}
-    /* RESPONSIVE */
-    @media (max-width: 960px){
-      .hero{grid-template-columns:1fr; padding-bottom:24px}
-      .portrait{min-height: 420px}
-      .media-grid{grid-template-columns:1fr}
+
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr;padding-bottom:24px}
+      .portrait{min-height:420px}
       .cases{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr}
       .nav{display:none}
     }
   </style>
@@ -304,7 +217,8 @@
       </div>
 
       <div class="hero-right">
-        <div class="portrait clickable" data-img="assets/img/hero.jpg" title="Open image">
+        <div class="portrait">
+          <!-- Update this path to whatever your hero image file actually is -->
           <img src="assets/img/hero.jpg" alt="Brandon Marcelas Dozier portrait" />
           <div class="stamp">
             <div class="tag"><strong>Live</strong> Performance Systems</div>
@@ -330,42 +244,43 @@
     <section id="media">
       <div class="section-title">
         <h2>Media</h2>
-        <p>Think “key art” + “stills” + “reel moments.” Click any image to view it full size. We’ll add videos next.</p>
+        <p>Curated reels—quick to scan, premium to watch. Click a card to play full audio.</p>
       </div>
 
       <div class="media-grid">
-        <div class="card clickable" data-img="assets/img/awards.jpg" title="Open image">
-          <img src="assets/img/awards.jpg" alt="Awards and festival recognition" />
-          <div class="cap">
-            <div>
-              <b>Awards + Recognition</b>
-              <span>Festival selections / credibility marks</span>
-            </div>
-            <div class="chip">Credibility</div>
+        <div class="media-card" data-video-src="media/og-web-reel-1.mp4" data-poster="media/posters/og-web-reel-1.jpg">
+          <video muted loop playsinline preload="metadata" poster="media/posters/og-web-reel-1.jpg"></video>
+          <div class="media-overlay"></div>
+          <div class="media-label">
+            <div class="play-badge">▶</div>
+            <div class="pill">OG Web Reel</div>
           </div>
         </div>
 
-        <div class="stack">
-          <div class="card clickable" data-img="assets/img/gameday.jpg" title="Open image">
-            <img src="assets/img/gameday.jpg" alt="Gameday poster" />
-            <div class="cap">
-              <div>
-                <b>Sports Entertainment</b>
-                <span>Game-day performance leadership</span>
-              </div>
-              <div class="chip">Live</div>
-            </div>
+        <div class="media-card" data-video-src="media/wedding-reel.mp4" data-poster="media/posters/wedding.jpg">
+          <video muted loop playsinline preload="metadata" poster="media/posters/wedding.jpg"></video>
+          <div class="media-overlay"></div>
+          <div class="media-label">
+            <div class="play-badge">▶</div>
+            <div class="pill">Wedding Reel</div>
           </div>
+        </div>
 
-          <div class="card clickable" data-img="assets/img/stairs.jpg" title="Open image">
-            <img src="assets/img/stairs.jpg" alt="Editorial portrait on stairs" />
-            <div class="cap">
-              <div>
-                <b>Editorial / Lifestyle</b>
-                <span>Human + cinematic identity</span>
-              </div>
-              <div class="chip">Brand</div>
-            </div>
+        <div class="media-card" data-video-src="media/reel-3.mp4" data-poster="media/posters/reel-3.jpg">
+          <video muted loop playsinline preload="metadata" poster="media/posters/reel-3.jpg"></video>
+          <div class="media-overlay"></div>
+          <div class="media-label">
+            <div class="play-badge">▶</div>
+            <div class="pill">Reel 3</div>
+          </div>
+        </div>
+
+        <div class="media-card" data-video-src="media/dance-reel.mp4" data-poster="media/posters/dance.jpg">
+          <video muted loop playsinline preload="metadata" poster="media/posters/dance.jpg"></video>
+          <div class="media-overlay"></div>
+          <div class="media-label">
+            <div class="play-badge">▶</div>
+            <div class="pill">Dance Reel</div>
           </div>
         </div>
       </div>
@@ -377,18 +292,9 @@
         <p>This is where your videos go—curated like case studies. Three strong projects beats ten random clips.</p>
       </div>
       <div class="cases">
-        <div class="case">
-          <b>Live Entertainment Production</b>
-          <p>Run-of-show systems, staging, pacing, transitions—designed for crowd energy and camera readability.</p>
-        </div>
-        <div class="case">
-          <b>Cinematic Performance Storytelling</b>
-          <p>Movement-forward directing + production design that turns performance into lasting digital assets.</p>
-        </div>
-        <div class="case">
-          <b>Technical Direction + Design</b>
-          <p>Lighting cues, show flow, and operational leadership that makes creative repeatable and scalable.</p>
-        </div>
+        <div class="case"><b>Live Entertainment Production</b><p>Run-of-show systems, staging, pacing, transitions—designed for crowd energy and camera readability.</p></div>
+        <div class="case"><b>Cinematic Performance Storytelling</b><p>Movement-forward directing + production design that turns performance into lasting digital assets.</p></div>
+        <div class="case"><b>Technical Direction + Design</b><p>Lighting cues, show flow, and operational leadership that makes creative repeatable and scalable.</p></div>
       </div>
     </section>
 
@@ -397,21 +303,21 @@
         <h2>Flagship Services</h2>
         <p>Premium offers for organizations and artists who want results—not just tasks.</p>
       </div>
-      <div class="services">
-        <div class="service">
-          <h3>Executive Creative Direction</h3>
+      <div class="cases">
+        <div class="case">
+          <b>Executive Creative Direction</b>
           <p>Vision casting, department alignment, run-of-show architecture, and production oversight for elevated live experiences.</p>
-          <div class="price"><strong>Investment begins at $3,500</strong></div>
+          <p class="muted" style="margin-top:12px;"><span style="color:var(--gold);font-weight:700;">Investment begins at $3,500</span></p>
         </div>
-        <div class="service">
-          <h3>Performance-to-Film Production</h3>
+        <div class="case">
+          <b>Performance-to-Film Production</b>
           <p>Concept development, performance oversight, cinematic capture, and post-production strategy that turns moments into assets.</p>
-          <div class="price"><strong>Investment begins at $5,000</strong></div>
+          <p class="muted" style="margin-top:12px;"><span style="color:var(--gold);font-weight:700;">Investment begins at $5,000</span></p>
         </div>
-        <div class="service">
-          <h3>Institutional Production Consulting</h3>
+        <div class="case">
+          <b>Institutional Production Consulting</b>
           <p>Production audits, workflow redesign, technical alignment, and leadership training for performance organizations.</p>
-          <div class="price"><strong>Investment begins at $2,500</strong></div>
+          <p class="muted" style="margin-top:12px;"><span style="color:var(--gold);font-weight:700;">Investment begins at $2,500</span></p>
         </div>
       </div>
     </section>
@@ -441,41 +347,56 @@
       </div>
     </section>
 
-    <div class="footer">
+    <div class="footer" style="border-top:1px solid rgba(255,255,255,.10);padding:26px 0 40px;color:var(--muted);font-size:.92rem;">
       © 2026 Brandon Marcelas Dozier. All rights reserved.
     </div>
   </main>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="frame">
-      <button class="close" id="closeLightbox">Close</button>
-      <img id="lightboxImg" alt="Expanded media" />
+  <!-- Modal player -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <div class="modal-inner">
+      <button class="modal-close" id="modalClose">Close</button>
+      <video id="modalVideo" controls playsinline></video>
     </div>
   </div>
 
   <script>
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    const closeBtn = document.getElementById('closeLightbox');
+    const modal = document.getElementById("videoModal");
+    const modalVideo = document.getElementById("modalVideo");
 
-    function openLightbox(src){
-      lbImg.src = src;
-      lb.classList.add('open');
-      lb.setAttribute('aria-hidden','false');
-    }
-    function closeLightbox(){
-      lb.classList.remove('open');
-      lb.setAttribute('aria-hidden','true');
-      lbImg.src = '';
+    function openModal(src) {
+      modalVideo.src = src;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      modalVideo.currentTime = 0;
+      modalVideo.play().catch(()=>{});
     }
 
-    document.querySelectorAll('[data-img]').forEach(el=>{
-      el.addEventListener('click', ()=> openLightbox(el.getAttribute('data-img')));
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalVideo.pause();
+      modalVideo.removeAttribute("src");
+      modalVideo.load();
+    }
+
+    // Load silent looping previews and click-to-play
+    document.querySelectorAll(".media-card").forEach((card)=>{
+      const src = card.getAttribute("data-video-src");
+      const poster = card.getAttribute("data-poster");
+      const preview = card.querySelector("video");
+
+      preview.src = src;
+      if (poster) preview.poster = poster;
+
+      preview.play().catch(()=>{ /* autoplay might be blocked until click */ });
+
+      card.addEventListener("click", ()=> openModal(src));
     });
-    closeBtn.addEventListener('click', closeLightbox);
-    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLightbox(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+
+    document.getElementById("modalClose").addEventListener("click", closeModal);
+    modal.addEventListener("click", (e)=>{ if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeModal(); });
   </script>
 </body>
 </html>
