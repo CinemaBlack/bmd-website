@@ -94,15 +94,15 @@
     .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
     .case{border-radius:var(--r);border:1px solid var(--stroke);background:rgba(255,255,255,.03);padding:18px}
     .case b{display:block;margin-bottom:8px}
-    .case p{margin:0;color:var(--muted);line-length:1.65}
+    .case p{margin:0;color:var(--muted);line-height:1.65}
 
-    /* VIDEO MEDIA GRID */
-    .media-grid{
+    /* VIDEO Media GRID */
+    .Media-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap:16px;
     }
-    .media-card{
+    .Media-card{
       border-radius:var(--r);
       border:1px solid var(--stroke);
       background:rgba(255,255,255,.03);
@@ -112,20 +112,20 @@
       cursor:pointer;
       aspect-ratio: 9 / 16;
     }
-    .media-card video{
+    .Media-card video{
       width:100%; height:100%; object-fit:cover; display:block;
       filter: contrast(1.05) saturate(1.05);
     }
-    .media-card:hover{transform:translateY(-1px)}
-    .media-overlay{
+    .Media-card:hover{transform:translateY(-1px)}
+    .Media-overlay{
       position:absolute; inset:0;
       background:linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0) 55%);
       opacity:0;
       transition:opacity .2s ease;
       pointer-events:none;
     }
-    .media-card:hover .media-overlay{opacity:1}
-    .media-label{
+    .Media-card:hover .Media-overlay{opacity:1}
+    .Media-label{
       position:absolute; left:14px; bottom:14px; right:14px;
       display:flex; justify-content:space-between; align-items:center; gap:12px;
       pointer-events:none;
@@ -171,7 +171,7 @@
       cursor:pointer;
     }
 
-    @media (max-width:960px){
+    @Media (max-width:960px){
       .hero{grid-template-columns:1fr;padding-bottom:24px}
       .portrait{min-height:420px}
       .cases{grid-template-columns:1fr}
@@ -190,7 +190,7 @@
         </div>
         <nav class="nav">
           <a href="#about">About</a>
-          <a href="#media">Media</a>
+          <a href="#Media">Media</a>
           <a href="#work">Selected Work</a>
           <a href="#services">Services</a>
           <a href="#inquiries" class="cta">Work With Me</a>
@@ -212,14 +212,14 @@
         <div class="hero-actions">
           <a class="btn gold" href="#inquiries">Start an Inquiry</a>
           <a class="btn" href="mailto:brandon@cinemablack.org?subject=Producer%20Inquiry">Email Me</a>
-          <a class="btn" href="#media">View Media</a>
+          <a class="btn" href="#Media">View Media</a>
         </div>
       </div>
 
       <div class="hero-right">
         <div class="portrait">
           <!-- Update this path to whatever your hero image file actually is -->
-          <img src="assets/img/hero.jpg" alt="Brandon Marcelas Dozier portrait" />
+          <img src="img/hero.jpg" alt="Brandon Marcelas Dozier portrait" />
           <div class="stamp">
             <div class="tag"><strong>Live</strong> Performance Systems</div>
             <div class="tag"><strong>Film</strong> Direction + DOP</div>
@@ -241,44 +241,44 @@
       </div>
     </section>
 
-    <section id="media">
+    <section id="Media">
       <div class="section-title">
         <h2>Media</h2>
         <p>Curated reels—quick to scan, premium to watch. Click a card to play full audio.</p>
       </div>
 
-      <div class="media-grid">
-        <div class="media-card" data-video-src="media/og-web-reel-1.mp4" data-poster="media/posters/og-web-reel-1.jpg">
-          <video muted loop playsinline preload="metadata" poster="media/posters/og-web-reel-1.jpg"></video>
-          <div class="media-overlay"></div>
-          <div class="media-label">
+      <div class="Media-grid">
+        <div class="Media-card" data-video-src="Media/og-web-reel-1.mp4" data-poster="Media/posters/og-web-reel-1.jpg">
+          <video muted loop playsinline preload="metadata" poster="Media/posters/og-web-reel-1.jpg"></video>
+          <div class="Media-overlay"></div>
+          <div class="Media-label">
             <div class="play-badge">▶</div>
             <div class="pill">OG Web Reel</div>
           </div>
         </div>
 
-        <div class="media-card" data-video-src="media/wedding-reel.mp4" data-poster="media/posters/wedding.jpg">
-          <video muted loop playsinline preload="metadata" poster="media/posters/wedding.jpg"></video>
-          <div class="media-overlay"></div>
-          <div class="media-label">
+        <div class="Media-card" data-video-src="Media/wedding-reel.mp4" data-poster="Media/posters/wedding.jpg">
+          <video muted loop playsinline preload="metadata" poster="Media/posters/wedding.jpg"></video>
+          <div class="Media-overlay"></div>
+          <div class="Media-label">
             <div class="play-badge">▶</div>
             <div class="pill">Wedding Reel</div>
           </div>
         </div>
 
-        <div class="media-card" data-video-src="media/reel-3.mp4" data-poster="media/posters/reel-3.jpg">
-          <video muted loop playsinline preload="metadata" poster="media/posters/reel-3.jpg"></video>
-          <div class="media-overlay"></div>
-          <div class="media-label">
+        <div class="Media-card" data-video-src="Media/reel-3.mp4" data-poster="Media/posters/reel-3.jpg">
+          <video muted loop playsinline preload="metadata" poster="Media/posters/reel-3.jpg"></video>
+          <div class="Media-overlay"></div>
+          <div class="Media-label">
             <div class="play-badge">▶</div>
             <div class="pill">Reel 3</div>
           </div>
         </div>
 
-        <div class="media-card" data-video-src="media/dance-reel.mp4" data-poster="media/posters/dance.jpg">
-          <video muted loop playsinline preload="metadata" poster="media/posters/dance.jpg"></video>
-          <div class="media-overlay"></div>
-          <div class="media-label">
+        <div class="Media-card" data-video-src="Media/dance-reel.mp4" data-poster="Media/posters/dance.jpg">
+          <video muted loop playsinline preload="metadata" poster="Media/posters/dance.jpg"></video>
+          <div class="Media-overlay"></div>
+          <div class="Media-label">
             <div class="play-badge">▶</div>
             <div class="pill">Dance Reel</div>
           </div>
@@ -381,7 +381,7 @@
     }
 
     // Load silent looping previews and click-to-play
-    document.querySelectorAll(".media-card").forEach((card)=>{
+    document.querySelectorAll(".Media-card").forEach((card)=>{
       const src = card.getAttribute("data-video-src");
       const poster = card.getAttribute("data-poster");
       const preview = card.querySelector("video");
