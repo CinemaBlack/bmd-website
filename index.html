@@ -2,401 +2,254 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brandon Marcelas Dozier | Creative Producer</title>
-  <meta name="description" content="Media-forward creative producer blending performance, film, and technical direction to deliver immersive experiences." />
-  <style>
-    :root{
-      --bg:#070707;
-      --stroke: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.88);
-      --muted: rgba(255,255,255,.62);
-      --gold:#c9a227;
-      --shadow: 0 24px 80px rgba(0,0,0,.55);
-      --r: 18px;
-      --max: 1120px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
-    .topbar{
-      position:fixed; inset:0 0 auto 0; z-index:50;
-      background: linear-gradient(180deg, rgba(7,7,7,.92), rgba(7,7,7,.40), transparent);
-      backdrop-filter: blur(10px);
-    }
-    .row{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;flex-direction:column;gap:2px;letter-spacing:.4px}
-    .brand b{font-weight:560}
-    .brand span{font-size:.86rem;color:var(--muted)}
-    .nav{display:flex;gap:22px;align-items:center}
-    .nav a{font-size:.92rem;color:var(--muted)}
-    .nav a:hover{color:var(--text)}
-    .cta{
-      padding:10px 14px;border-radius:999px;
-      border:1px solid rgba(201,162,39,.35);
-      background:rgba(201,162,39,.08);
-      color:var(--text);
-    }
-    .hero{
-      min-height:100svh;
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:22px;
-      align-items:end;
-      padding:110px 0 40px;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero:before{
-      content:""; position:absolute; inset:-40px;
-      background:
-        radial-gradient(900px 500px at 20% 20%, rgba(201,162,39,.20), transparent 55%),
-        radial-gradient(800px 700px at 80% 10%, rgba(255,255,255,.10), transparent 55%),
-        radial-gradient(900px 600px at 60% 80%, rgba(201,162,39,.10), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-left{position:relative; z-index:1}
-    .pill{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.04);
-      color:var(--muted);
-      font-size:.88rem;
-    }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 20px rgba(201,162,39,.35)}
-    h1{margin:14px 0 8px;font-size:clamp(2.3rem,4.4vw,4.1rem);line-height:1.02;letter-spacing:-.6px}
-    .lead{max-width:54ch;color:var(--muted);font-size:1.05rem;line-height:1.7;margin:10px 0 22px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      padding:12px 16px;border-radius:12px;border:1px solid var(--stroke);
-      background: rgba(255,255,255,.04); color:var(--text);
-      text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
-    }
-    .btn.gold{border-color:rgba(201,162,39,.45);background:rgba(201,162,39,.10)}
-    .portrait{
-      border-radius:26px; overflow:hidden; border:1px solid rgba(255,255,255,.10);
-      box-shadow:var(--shadow); background:rgba(255,255,255,.03);
-      position:relative; isolation:isolate; min-height:520px;
-    }
-    .portrait img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02)}
-    .portrait:after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,7,7,.10), rgba(7,7,7,.55) 65%, rgba(7,7,7,.92))}
-    .stamp{position:absolute;left:16px;bottom:16px;right:16px;display:flex;gap:12px;flex-wrap:wrap;z-index:2}
-    .tag{
-      padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.25); color:rgba(255,255,255,.78); font-size:.86rem; backdrop-filter:blur(10px);
-    }
-    section{padding:72px 0}
-    .section-title{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
-    .section-title h2{margin:0;font-size:1.6rem}
-    .section-title p{margin:0;color:var(--muted);max-width:64ch;line-height:1.6}
-    .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-    .case{border-radius:var(--r);border:1px solid var(--stroke);background:rgba(255,255,255,.03);padding:18px}
-    .case b{display:block;margin-bottom:8px}
-    .case p{margin:0;color:var(--muted);line-height:1.65}
-
-    /* VIDEO Media GRID */
-    .Media-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap:16px;
-    }
-    .Media-card{
-      border-radius:var(--r);
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-      overflow:hidden;
-      position:relative;
-      box-shadow:0 16px 60px rgba(0,0,0,.35);
-      cursor:pointer;
-      aspect-ratio: 9 / 16;
-    }
-    .Media-card video{
-      width:100%; height:100%; object-fit:cover; display:block;
-      filter: contrast(1.05) saturate(1.05);
-    }
-    .Media-card:hover{transform:translateY(-1px)}
-    .Media-overlay{
-      position:absolute; inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0) 55%);
-      opacity:0;
-      transition:opacity .2s ease;
-      pointer-events:none;
-    }
-    .Media-card:hover .Media-overlay{opacity:1}
-    .Media-label{
-      position:absolute; left:14px; bottom:14px; right:14px;
-      display:flex; justify-content:space-between; align-items:center; gap:12px;
-      pointer-events:none;
-    }
-    .pill{
-      font-size:12px; letter-spacing:.8px; text-transform:uppercase;
-      padding:8px 10px; border-radius:999px;
-      border:1px solid rgba(201,162,39,.55);
-      color:var(--gold);
-      background:rgba(0,0,0,.35);
-      backdrop-filter:blur(6px);
-    }
-    .play-badge{
-      width:44px;height:44px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.25);
-      display:grid; place-items:center;
-      background:rgba(0,0,0,.40);
-      color:rgba(255,255,255,.88);
-      font-weight:600;
-    }
-
-    /* Modal player */
-    .modal{
-      position:fixed; inset:0; background:rgba(0,0,0,.85);
-      display:none; align-items:center; justify-content:center;
-      padding:24px; z-index:9999;
-    }
-    .modal.open{display:flex}
-    .modal-inner{
-      width:min(520px, 92vw);
-      border-radius:18px; overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background:#0a0a0a; position:relative;
-    }
-    .modal video{width:100%; height:auto; display:block; background:#000}
-    .modal-close{
-      position:absolute; top:10px; right:10px;
-      border:1px solid rgba(255,255,255,.2);
-      background:rgba(0,0,0,.55);
-      color:#fff;
-      padding:8px 10px;
-      border-radius:999px;
-      cursor:pointer;
-    }
-
-    @Media (max-width:960px){
-      .hero{grid-template-columns:1fr;padding-bottom:24px}
-      .portrait{min-height:420px}
-      .cases{grid-template-columns:1fr}
-      .nav{display:none}
-    }
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cinema Black</title>
+  <meta name="description" content="Cinema Black — film, movement, and production." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
 
-  <header class="topbar">
-    <div class="wrap">
-      <div class="row">
-        <div class="brand">
-          <b>Brandon Marcelas Dozier</b>
-          <span>Creative Producer • Performance Architect</span>
-        </div>
-        <nav class="nav">
-          <a href="#about">About</a>
-          <a href="#Media">Media</a>
-          <a href="#work">Selected Work</a>
-          <a href="#services">Services</a>
-          <a href="#inquiries" class="cta">Work With Me</a>
-        </nav>
-        <a class="cta" href="#inquiries">Work With Me</a>
-      </div>
+<body>
+  <!-- Top Nav -->
+  <header class="topbar" id="top">
+    <div class="topbar__inner">
+      <a class="brand" href="#top" aria-label="Cinema Black Home">
+        <span class="dot"></span> CINEMA BLACK
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#work">WORK</a>
+        <a href="#reels">REELS</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact" class="nav__cta">BOOK</a>
+      </nav>
+
+      <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">
+        Menu
+      </button>
+    </div>
+
+    <div class="mobileMenu" id="mobileMenu" hidden>
+      <a href="#work">WORK</a>
+      <a href="#reels">REELS</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">BOOK</a>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero" id="top">
-      <div class="hero-left">
-        <div class="pill"><span class="dot"></span>Available for select 2026 projects</div>
-        <h1>Media-first production that feels cinematic, controlled, and alive.</h1>
-        <p class="lead">
-          I build immersive experiences across stage, screen, and live audiences—merging performance direction,
-          technical systems, and storytelling so the final product lands with impact.
-        </p>
-        <div class="hero-actions">
-          <a class="btn gold" href="#inquiries">Start an Inquiry</a>
-          <a class="btn" href="mailto:brandon@cinemablack.org?subject=Producer%20Inquiry">Email Me</a>
-          <a class="btn" href="#Media">View Media</a>
+  <!-- HERO -->
+  <main>
+    <section class="hero" aria-label="Hero section">
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="hero__type" aria-hidden="true">
+        <div class="hero__word">CINEMA</div>
+        <div class="hero__word hero__word--offset">BLACK</div>
+      </div>
+
+      <div class="hero__mediaCard">
+        <img src="assets/hero.jpg" alt="Cinema Black hero portrait" />
+        <div class="hero__badge">
+          <div class="hero__badgeTitle">PRODUCER • DP • CHOREOGRAPHY</div>
+          <div class="hero__badgeSub">Story-first. Movement-driven. Built to deliver.</div>
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="portrait">
-          <!-- Update this path to whatever your hero image file actually is -->
-          <img src="img/hero.jpg" alt="Brandon Marcelas Dozier portrait" />
-          <div class="stamp">
-            <div class="tag"><strong>Live</strong> Performance Systems</div>
-            <div class="tag"><strong>Film</strong> Direction + DOP</div>
-            <div class="tag"><strong>Tech</strong> Cues + Show Flow</div>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#reels">Watch Reels</a>
+        <a class="btn btn--ghost" href="#contact">Book a Project</a>
+      </div>
+
+      <div class="hero__hint">Scroll</div>
+    </section>
+
+    <!-- WORK / FEATURED -->
+    <section class="section" id="work" aria-label="Featured work">
+      <div class="section__head">
+        <h2>Featured</h2>
+        <p class="section__sub">A quick hit of what you do best — visuals + proof.</p>
+      </div>
+
+      <div class="grid grid--featured">
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/awards.jpg" alt="Awards / festival selections image" loading="lazy" />
           </div>
-        </div>
+          <div class="card__body">
+            <h3>Festival-Recognized Work</h3>
+            <p>Highlight your strongest credits, selections, and wins with one clean visual.</p>
+            <div class="card__tags">
+              <span>Film</span><span>DP</span><span>Producer</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/stairs.jpg" alt="Lifestyle portrait on stairs" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <h3>Portraits + Brand Visuals</h3>
+            <p>Stylized photo + motion packages for artists, brands, and campaigns.</p>
+            <div class="card__tags">
+              <span>Brand</span><span>Photo</span><span>Social</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card--wide">
+          <div class="card__media">
+            <img src="assets/gameday.jpg" alt="Game day promo graphic" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <h3>Sports Entertainment</h3>
+            <p>High-impact promo graphics and performance-driven storytelling.</p>
+            <div class="card__tags">
+              <span>Sports</span><span>Performance</span><span>Creative Direction</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="about">
-      <div class="section-title">
-        <h2>Producer Snapshot</h2>
-        <p>Clear vision, clean execution, repeatable systems. I bring structure to creativity—so the work scales.</p>
+    <!-- REELS -->
+    <section class="section" id="reels" aria-label="Video reels">
+      <div class="section__head">
+        <h2>Reels</h2>
+        <p class="section__sub">Tap to play. Built to look professional on desktop + mobile.</p>
       </div>
-      <div class="cases">
-        <div class="case"><b>Live Entertainment + Storytelling</b><p>Audience-driven pacing, transitions, and stage picture that reads premium on-site and on-camera.</p></div>
-        <div class="case"><b>Performance Systems</b><p>Choreography leadership, rehearsal structure, run-of-show architecture, and talent direction.</p></div>
-        <div class="case"><b>Technical Precision</b><p>Lighting cues, operational leadership, and production strategy that makes creative repeatable.</p></div>
+
+      <div class="grid grid--reels">
+        <figure class="reel">
+          <button class="reel__overlay" type="button" aria-label="Play Dance Reel">
+            <span class="reel__play">Play</span>
+          </button>
+          <video class="reel__video" preload="metadata" playsinline muted loop poster="assets/hero.jpg">
+            <source src="assets/dance-reel.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="reel__cap">
+            <div class="reel__title">Dance Reel</div>
+            <div class="reel__meta">Choreo • Performance • Camera</div>
+          </figcaption>
+        </figure>
+
+        <figure class="reel">
+          <button class="reel__overlay" type="button" aria-label="Play Wedding Reel">
+            <span class="reel__play">Play</span>
+          </button>
+          <video class="reel__video" preload="metadata" playsinline muted loop poster="assets/stairs.jpg">
+            <source src="assets/wedding-reel.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="reel__cap">
+            <div class="reel__title">Wedding / Live Event</div>
+            <div class="reel__meta">Coverage • Edit • Delivery</div>
+          </figcaption>
+        </figure>
+
+        <figure class="reel">
+          <button class="reel__overlay" type="button" aria-label="Play Reel 3">
+            <span class="reel__play">Play</span>
+          </button>
+          <video class="reel__video" preload="metadata" playsinline muted loop poster="assets/gameday.jpg">
+            <source src="assets/reel-3.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="reel__cap">
+            <div class="reel__title">Reel 03</div>
+            <div class="reel__meta">Highlights • Social • Motion</div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="note">
+        <strong>Tip:</strong> Keep reels under ~30–60s for fastest load. Use H.264 MP4 for best compatibility.
       </div>
     </section>
 
-    <section id="Media">
-      <div class="section-title">
-        <h2>Media</h2>
-        <p>Curated reels—quick to scan, premium to watch. Click a card to play full audio.</p>
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-label="About Cinema Black">
+      <div class="section__head">
+        <h2>About</h2>
+        <p class="section__sub">Say who you are, what you do, and why you’re different.</p>
       </div>
 
-      <div class="Media-grid">
-        <div class="Media-card" data-video-src="Media/og-web-reel-1.mp4" data-poster="Media/posters/og-web-reel-1.jpg">
-          <video muted loop playsinline preload="metadata" poster="Media/posters/og-web-reel-1.jpg"></video>
-          <div class="Media-overlay"></div>
-          <div class="Media-label">
-            <div class="play-badge">▶</div>
-            <div class="pill">OG Web Reel</div>
-          </div>
-        </div>
-
-        <div class="Media-card" data-video-src="Media/wedding-reel.mp4" data-poster="Media/posters/wedding.jpg">
-          <video muted loop playsinline preload="metadata" poster="Media/posters/wedding.jpg"></video>
-          <div class="Media-overlay"></div>
-          <div class="Media-label">
-            <div class="play-badge">▶</div>
-            <div class="pill">Wedding Reel</div>
-          </div>
-        </div>
-
-        <div class="Media-card" data-video-src="Media/reel-3.mp4" data-poster="Media/posters/reel-3.jpg">
-          <video muted loop playsinline preload="metadata" poster="Media/posters/reel-3.jpg"></video>
-          <div class="Media-overlay"></div>
-          <div class="Media-label">
-            <div class="play-badge">▶</div>
-            <div class="pill">Reel 3</div>
-          </div>
-        </div>
-
-        <div class="Media-card" data-video-src="Media/dance-reel.mp4" data-poster="Media/posters/dance.jpg">
-          <video muted loop playsinline preload="metadata" poster="Media/posters/dance.jpg"></video>
-          <div class="Media-overlay"></div>
-          <div class="Media-label">
-            <div class="play-badge">▶</div>
-            <div class="pill">Dance Reel</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="section-title">
-        <h2>Selected Work</h2>
-        <p>This is where your videos go—curated like case studies. Three strong projects beats ten random clips.</p>
-      </div>
-      <div class="cases">
-        <div class="case"><b>Live Entertainment Production</b><p>Run-of-show systems, staging, pacing, transitions—designed for crowd energy and camera readability.</p></div>
-        <div class="case"><b>Cinematic Performance Storytelling</b><p>Movement-forward directing + production design that turns performance into lasting digital assets.</p></div>
-        <div class="case"><b>Technical Direction + Design</b><p>Lighting cues, show flow, and operational leadership that makes creative repeatable and scalable.</p></div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="section-title">
-        <h2>Flagship Services</h2>
-        <p>Premium offers for organizations and artists who want results—not just tasks.</p>
-      </div>
-      <div class="cases">
-        <div class="case">
-          <b>Executive Creative Direction</b>
-          <p>Vision casting, department alignment, run-of-show architecture, and production oversight for elevated live experiences.</p>
-          <p class="muted" style="margin-top:12px;"><span style="color:var(--gold);font-weight:700;">Investment begins at $3,500</span></p>
-        </div>
-        <div class="case">
-          <b>Performance-to-Film Production</b>
-          <p>Concept development, performance oversight, cinematic capture, and post-production strategy that turns moments into assets.</p>
-          <p class="muted" style="margin-top:12px;"><span style="color:var(--gold);font-weight:700;">Investment begins at $5,000</span></p>
-        </div>
-        <div class="case">
-          <b>Institutional Production Consulting</b>
-          <p>Production audits, workflow redesign, technical alignment, and leadership training for performance organizations.</p>
-          <p class="muted" style="margin-top:12px;"><span style="color:var(--gold);font-weight:700;">Investment begins at $2,500</span></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="inquiries">
-      <div class="section-title">
-        <h2>Inquiries</h2>
-        <p>Include: date(s), location, goal/outcome, audience size, and timeline. I’ll respond with next steps and availability.</p>
-      </div>
-      <div class="cases">
-        <div class="case">
-          <b>Start here</b>
+      <div class="about">
+        <div class="about__copy">
+          <h3>Story-first production rooted in movement.</h3>
           <p>
-            Email: <a href="mailto:brandon@cinemablack.org?subject=Producer%20Inquiry"><u>brandon@cinemablack.org</u></a>
-            <br/><br/>
-            Subject suggestion: <span style="color:var(--gold)">Producer Inquiry — [Project Name]</span>
+            Cinema Black is a hybrid creative studio built for performance, film, and branded storytelling.
+            I produce, shoot, and direct projects that feel cinematic, intentional, and alive.
           </p>
+          <p>
+            If you’re an artist, brand, or organization that needs clean visuals with real emotional impact,
+            let’s build something that travels.
+          </p>
+
+          <div class="about__stats">
+            <div class="stat">
+              <div class="stat__num">Multi-Award</div>
+              <div class="stat__label">Recognized Work</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">Full-Stack</div>
+              <div class="stat__label">Producer + DP</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">Fast</div>
+              <div class="stat__label">Social Delivery</div>
+            </div>
+          </div>
         </div>
-        <div class="case">
-          <b>What I’m best for</b>
-          <p>High-impact productions that need creative leadership + technical structure—so the experience lands and scales.</p>
-        </div>
-        <div class="case">
-          <b>DMV-based</b>
-          <p>Washington, DC • Maryland • Virginia. Travel considered for the right scope.</p>
+
+        <div class="about__image">
+          <img src="assets/awards.jpg" alt="Awards image" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <div class="footer" style="border-top:1px solid rgba(255,255,255,.10);padding:26px 0 40px;color:var(--muted);font-size:.92rem;">
-      © 2026 Brandon Marcelas Dozier. All rights reserved.
-    </div>
+    <!-- CONTACT / BOOK -->
+    <section class="section" id="contact" aria-label="Contact and booking">
+      <div class="section__head">
+        <h2>Book</h2>
+        <p class="section__sub">Drop your email and project details. (This demo shows a success message.)</p>
+      </div>
+
+      <form class="form" id="contactForm">
+        <div class="form__row">
+          <label>
+            Name
+            <input name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="you@email.com" required />
+          </label>
+        </div>
+
+        <label>
+          What are we making?
+          <textarea name="message" rows="5" placeholder="Project type, date, location, budget range, deliverables..." required></textarea>
+        </label>
+
+        <div class="form__actions">
+          <button class="btn btn--primary" type="submit">Send</button>
+          <a class="btn btn--ghost" href="#top">Back to top</a>
+        </div>
+
+        <div class="form__msg" id="formMsg" role="status" aria-live="polite"></div>
+      </form>
+    </section>
   </main>
 
-  <!-- Modal player -->
-  <div class="modal" id="videoModal" aria-hidden="true">
-    <div class="modal-inner">
-      <button class="modal-close" id="modalClose">Close</button>
-      <video id="modalVideo" controls playsinline></video>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>© <span id="year"></span> CINEMA BLACK. All Rights Reserved.</div>
+      <div class="footer__links">
+        <a href="#work">Work</a>
+        <a href="#reels">Reels</a>
+        <a href="#contact">Book</a>
+      </div>
     </div>
-  </div>
+  </footer>
 
-  <script>
-    const modal = document.getElementById("videoModal");
-    const modalVideo = document.getElementById("modalVideo");
-
-    function openModal(src) {
-      modalVideo.src = src;
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-      modalVideo.currentTime = 0;
-      modalVideo.play().catch(()=>{});
-    }
-
-    function closeModal() {
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      modalVideo.pause();
-      modalVideo.removeAttribute("src");
-      modalVideo.load();
-    }
-
-    // Load silent looping previews and click-to-play
-    document.querySelectorAll(".Media-card").forEach((card)=>{
-      const src = card.getAttribute("data-video-src");
-      const poster = card.getAttribute("data-poster");
-      const preview = card.querySelector("video");
-
-      preview.src = src;
-      if (poster) preview.poster = poster;
-
-      preview.play().catch(()=>{ /* autoplay might be blocked until click */ });
-
-      card.addEventListener("click", ()=> openModal(src));
-    });
-
-    document.getElementById("modalClose").addEventListener("click", closeModal);
-    modal.addEventListener("click", (e)=>{ if (e.target === modal) closeModal(); });
-    document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeModal(); });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
